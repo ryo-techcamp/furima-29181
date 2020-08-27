@@ -7,11 +7,11 @@
 | nick_name     | string  | null: false |
 | email         | string  | null: false |
 | password      | string  | null: false |
-| sei           | string  | null: false |
-| mei           | string  | null: false |
-| sei_kana      | string  | null: false |
-| mei_kana      | string  | null: false |
-| date          | integer | null: false |
+| first_name    | string  | null: false |
+| family_name   | string  | null: false |
+| first_kana    | string  | null: false |
+| family_kana   | string  | null: false |
+| date          | date    | null: false |
 ### Association
 
 - has_many :items
@@ -37,24 +37,26 @@
 
 ## buyers テーブル
 | Column          | Type       | Options                    |
-| ------          | ---------- | -------------------------- |
-| user_id         |            |                            |
-| item_id         |            |                            |
+| ----------------| ---------- | -------------------------- |
+| user_id         | integer    | foreign_key: true          |
+| item_id         | integer    | foreign_key: true          |
 
 ### Association
 
 - has_one :shipping_address
+- belongs_to :item
+- belongs_to :user
 
 ## shipping_address テーブル 
 
 | Column          | Type       | Options                    |
 | ------          | ---------- | -------------------------- |
 | postal_code     | string     | null: false                |
-| prefecture      | string     | null: false                |
+| prefecture      | integer    | null: false                |
 | city            | string     | null: false                |
-| address         | integer    | null: false                |
+| address         | string     | null: false                |
 | building_name   | string     |                            |
-| phone_number    | integer    | null: false                | 
+| phone_number    | string     | null: false                | 
 
 ### Association
 
