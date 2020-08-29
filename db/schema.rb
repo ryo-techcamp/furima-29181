@@ -30,10 +30,10 @@ ActiveRecord::Schema.define(version: 2020_08_28_030837) do
     t.string "nick_name", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.string "first_name", null: false
     t.string "family_name", null: false
-    t.string "first_kana", null: false
+    t.string "first_name", null: false
     t.string "family_kana", null: false
+    t.string "first_kana", null: false
     t.date "date", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
