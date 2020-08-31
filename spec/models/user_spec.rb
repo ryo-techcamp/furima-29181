@@ -84,6 +84,19 @@ RSpec.describe User, type: :model do
       expect(@user.errors.full_messages).to include("date can't be blank")
     end
 
+    it 'パスワードは半角英数字混合であること' do
+      @user.password = hoge1234
+      user.valid?
+      expect(@user.errors[:password]).to include('は半角英数字を含む必要があります')
+    end
+
+    it 'メールアドレスは@を含む必要があること' do
+      @user.mail = hoge@xxx
+      user.valid?
+      expect(@user.errors[:email]).to include('は@を含む必要があります')
+    end
+
+    
 
 
   end
