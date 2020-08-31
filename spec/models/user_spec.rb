@@ -53,5 +53,38 @@ RSpec.describe User, type: :model do
       another_user.valid?
       expect(another_user.errors.full_messages).to include('Email has already been taken')
     end
+
+    it 'first_nameが空では登録できないこと' do
+      @user.first_name = nil
+      @user.valid?
+      expect(@user.errors.full_messages).to include("first_name can't be blank")
+    end
+
+    it 'family_nameが空では登録できないこと' do
+      @user.family_name = nil
+      @user.valid?
+      expect(@user.errors.full_messages).to include("family_name can't be blank")
+    end
+
+    it 'first_kanaが空では登録できないこと' do
+      @user.first_kana = nil
+      @user.valid?
+      expect(@user.errors.full_messages).to include("first_kana can't be blank")
+    end
+
+    it 'family_kanaが空では登録できないこと' do
+      @user.family_kana = nil
+      @user.valid?
+      expect(@user.errors.full_messages).to include("family_kana can't be blank")
+    end
+
+    it 'dateが空では登録できないこと' do
+      @user.date = nil
+      @user.valid?
+      expect(@user.errors.full_messages).to include("date can't be blank")
+    end
+
+
+
   end
 end
