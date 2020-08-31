@@ -9,4 +9,8 @@ class UsersController < ApplicationController
     redirect_to action::index
   end
 
+  def new
+    @user = User.new
+  end
+
 end

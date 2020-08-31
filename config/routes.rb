@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   get 'sessions/new'
   devise_for :users
-  get 'items/index'
-  root to: "items#index"
+  get 'users/index'
+  root to: "users#index"
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
+resources:users, only:[:index, :new, :create, :destroy]
 end
