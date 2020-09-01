@@ -11,6 +11,7 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.integer :date_of_shipment
       t.integer :price
       t.integer :user_id
+      t.boolean :checked
       t.timestamps
     end
   end
