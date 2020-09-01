@@ -15,6 +15,7 @@ class UsersController < ApplicationController
     @status = Status.new
     @shippingfee = Shippingfee.new
     @shipping = Shipping.new
+    @shippingday = Shippingday.new
   end
 
   def create
@@ -53,6 +54,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def create
+    @shippingday = Shippingday.new(shippingday_params)
+    if @shippingday.save
+      redirect_to root_path
+    else
+      render :new
+    end
+  end
+
   private
 
   def article_params
@@ -71,5 +81,8 @@ class UsersController < ApplicationController
     params.require(:shipping).permit(:title,:text,:place_id)
   end
 
+  def shippingday_params
+    params.require(:shippingday).permit(:title,:text,:day_id)
+  end
 
 end

@@ -11,4 +11,5 @@ resources :articles
 resources :statuss
 resources :shippingfees
 resources :shippings
+resources :shippingdays
 end
