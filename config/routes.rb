@@ -10,4 +10,5 @@ resources:users, only:[:index, :new, :create, :destroy]
 resources :articles
 resources :statuss
 resources :shippingfees
+resources :shippings
 end
