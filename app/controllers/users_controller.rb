@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   def new
     @user = User.new
     @article = Article.new
+    @status = Status.new
   end
 
   def create
@@ -23,10 +24,23 @@ class UsersController < ApplicationController
     end
   end
 
+  def create
+    @status = Status.new(status_params)
+    if @status.save
+      redirect_to root_path
+    else
+      render :new
+    end
+  end
+
   private
 
   def article_params
     params.require(:article).permit(:title,:text,:genre_id)
+  end
+
+  def status_params
+    params.require(:status).permit(:title,:text,:sutum_id)
   end
 
 end
