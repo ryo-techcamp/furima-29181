@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     @user = User.new
     @article = Article.new
     @status = Status.new
+    @shippingfee = Shippingfee.new
   end
 
   def create
@@ -33,6 +34,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def create
+    @shippingfee = Shippingfee.new(shippingfee_params)
+    if @sippingfee.save
+      redirect_to root_path
+    else
+      render :new
+    end
+  end
+
   private
 
   def article_params
@@ -42,5 +52,10 @@ class UsersController < ApplicationController
   def status_params
     params.require(:status).permit(:title,:text,:sutum_id)
   end
+
+  def shippingfee_params
+    params.require(:shippingfee).permit(:title,:text,:sora_id)
+  end
+
 
 end

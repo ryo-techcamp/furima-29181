@@ -9,4 +9,5 @@ Rails.application.routes.draw do
 resources:users, only:[:index, :new, :create, :destroy]
 resources :articles
 resources :statuss
+resources :shippingfees
 end
