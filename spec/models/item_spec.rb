@@ -71,7 +71,7 @@ RSpec.describe Item, type: :model do
     end
 
     it "上限以上の場合" do
-      @item.price = "99999999"
+      @item.price = "1000000000"
       @item.valid?
       expect(@item.errors.full_messages).to be_vaild include("maximum is 9999999 prices")
     end
