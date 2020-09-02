@@ -59,5 +59,10 @@ RSpec.describe Item, type: :model do
       @item.valid?
       expect(@item.errors.full_messages).to include("Name can't be blank")
     end
+
+    it "価格の範囲が、¥300~¥9,999,999の間であること" do
+      expect(@item.errors.full_messages).to be_between(300, 9,999,999).inclusive
+    end
+
   end
 end
