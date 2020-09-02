@@ -64,5 +64,17 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to be_between(300, 9,999,999).inclusive
     end
 
+    it "下限以下の場合" do
+      @item.price = "100"
+      @item.valid?
+      expect(@item.errors.full_messages).to be_vaild include("minimum is 300 prices")
+    end
+
+    it "上限以上の場合" do
+      @item.price = "99999999"
+      @item.valid?
+      expect(@item.errors.full_messages).to be_vaild include("maximum is 9999999 prices")
+    end
+
   end
 end
