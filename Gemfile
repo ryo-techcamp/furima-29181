@@ -62,3 +62,4 @@ end
 
 gem 'devise'
 gem 'bcrypt',  '3.1.12'
+gem 'active_hash'
