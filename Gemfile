@@ -63,3 +63,11 @@ end
 gem 'devise'
 gem 'bcrypt',  '3.1.12'
 gem 'active_hash'
+
+group :development, :test do
+  gem 'pry-rails'
+
+  gem 'pry-doc'
+
+  gem 'pry-byebug'
+end
