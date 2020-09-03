@@ -2,7 +2,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :nick_name, :password, :email, presence: true
+  validates :nick_name, :password, presence: true
 
   validates :password, presence: true, length: { minimum: 6 },
                        format: { with: /\A[a-z0-9]+\z/i, message: 'is must NOT contain any other characters than alphanumerics.' }

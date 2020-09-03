@@ -1,15 +1,14 @@
 Rails.application.routes.draw do
+  resources :items, only:[:index, :new, :create, :update]
   get 'sessions/new'
   devise_for :users
-  get 'users/index'
-  root to: "users#index"
+  root to: "items#index"
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
-resources:users, only:[:index, :new, :create, :destroy]
-resources :articles
-resources :statuss
-resources :shippingfees
-resources :shippings
-resources :shippingdays
+# resources :articles
+# resources :statuss
+# resources :shippingfees
+# resources :shippings
+# resources :shippingdays
 end
