@@ -241,23 +241,30 @@ a {
   width: 100vw;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
+  background-color:blue;
+
 }
 
 .item-lists>.list {
-  width: 37vh;
+  width: calc((100% - 50px) / 4);
   padding: 1vw;
-  background-color: #FFF;
+  margin: 40px;
+  background-color:yellow;
+  display: block;
 }
 
 
 .item-img-content {
   position: relative;
+  background-color: chartreuse;
 }
 
 .item-img {
-  width: 33vh;
-  height: 33vh;
+  position: relative;
+  top: 40%;
+  width: 100%;
+  background-color: pink;
 }
 
 .sold-out {
