@@ -75,3 +75,11 @@ end
 group :production do
   gem 'rails_12factor'
 end
+
+gem 'mini_magick'
+gem 'image_processing', '~> 1.2'
+
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem "refile-mini_magick"
+
+gem "aws-sdk-s3", require: false

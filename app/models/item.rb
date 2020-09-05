@@ -1,6 +1,10 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to_active_hash [:genre, :sutum, :sora, :place, :day]
+  belongs_to_active_hash :genre
+  belongs_to_active_hash :sutum
+  belongs_to_active_hash :sora
+  belongs_to_active_hash :place
+  belongs_to_active_hash :day
 
 validates :image, :name, :description, :genre_id,:sutum_id,:sora_id,:place_id,:day_id,  presence: true
 

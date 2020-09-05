@@ -241,15 +241,13 @@ a {
   width: 100vw;
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
 }
 
 .item-lists>.list {
-  width: calc((100% - 50px) / 4);
+  width: 37vh;
   padding: 1vw;
-  margin: 40px;
-  background-color:#FFF;
-  display: block;
+  background-color: #FFF;
 }
 
 
@@ -258,9 +256,8 @@ a {
 }
 
 .item-img {
-  position: relative;
-  top: 40%;
-  width: 100%;
+  width: 33vh;
+  height: 33vh;
 }
 
 .sold-out {
