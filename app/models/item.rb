@@ -6,6 +6,8 @@ class Item < ApplicationRecord
   belongs_to_active_hash :place
   belongs_to_active_hash :day
 
+  has_many_attached :image
+
   validates :image, :name, :description, :genre_id, :sutum_id, :sora_id, :place_id, :day_id,  presence: true
 
   validates :genre_id, :sutum_id, :sora_id, :place_id, :day_id, numericality: { other_than: 1 }
