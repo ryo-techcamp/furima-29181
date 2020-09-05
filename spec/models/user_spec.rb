@@ -91,13 +91,9 @@ RSpec.describe User, type: :model do
     end
 
     it 'メールアドレスは@を含む必要があること' do
-      @user.mail = hoge@xxx
+      @user.mail = hoge @xxx
       user.valid?
       expect(@user.errors[:email]).to include('は@を含む必要があります')
     end
-
-    
-
-
   end
 end
