@@ -46,23 +46,23 @@
         </tr>
         <tr>
           <th class="detail-item">カテゴリー</th>
-          <td class="detail-value"><%= @item.genre_id %></td>
+          <td class="detail-value"><%= @item.genre.name %></td>
         </tr>
         <tr>
           <th class="detail-item">商品の状態</th>
-          <td class="detail-value"><%= @item.sutum_id %></td>
+          <td class="detail-value"><%= @item.sutum.status %></td>
         </tr>
         <tr>
           <th class="detail-item">配送料の負担</th>
-          <td class="detail-value"><%= @item.sora_id %></td>
+          <td class="detail-value"><%= @item.sora.shippingfee %></td>
         </tr>
         <tr>
           <th class="detail-item">発送元の地域</th>
-          <td class="detail-value"><%= @item.place_id %></td>
+          <td class="detail-value"><%= @item.place.place %></td>
         </tr>
         <tr>
           <th class="detail-item">発送日の目安</th>
-          <td class="detail-value"><%= @item.day_id %></td>
+          <td class="detail-value"><%= @item.day.day %></td>
         </tr>
       </tbody>
     </table>
