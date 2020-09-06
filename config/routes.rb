@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   resources :items, only:[:index, :new, :create, :update, :show]
+  resources :users, only:[:new,:create,:destroy,:show]
+
   get 'sessions/new'
   devise_for :users
   root to: "items#index"
