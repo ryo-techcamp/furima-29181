@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :items, only:[:index, :new, :create, :update, :show]
+  resources :items, only:[:index, :new, :create, :update, :show,:edit,:update]
 
   get 'sessions/new'
   devise_for :users
