@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :items, only:[:index, :new, :create, :update, :show]
-  resources :users, only:[:new,:create,:destroy,:show]
+  # resources :users, only:[:new,:create,:destroy,:show]
 
   get 'sessions/new'
   devise_for :users
@@ -8,9 +8,4 @@ Rails.application.routes.draw do
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
-# resources :articles
-# resources :statuss
-# resources :shippingfees
-# resources :shippings
-# resources :shippingdays
 end
