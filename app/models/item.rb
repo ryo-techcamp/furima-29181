@@ -10,7 +10,7 @@ class Item < ApplicationRecord
 
   validates :image, :name, :description, :genre_id, :sutum_id, :sora_id, :place_id, :day_id,  presence: true
 
-  validates :genre, :sutum, :sora, :place, :day, numericality: { other_than: 1 , message:'Select' }
+  validates :genre_id, :sutum_id, :sora_id, :place_id, :day_id, numericality: { other_than: 1 , message:'Select' }
 
   validates :price, numericality: { greater_than_or_equal_to: 300 }
   validates :price, numericality: { less_than: 9_999_999 }
