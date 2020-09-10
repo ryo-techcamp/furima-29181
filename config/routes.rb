@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  resources :items, only:[:index, :new, :create, :update, :show,:edit,:update,:destroy] 
-  resources :shipping_address, only:[:show,:index,:create]
   
   resources :items do
     resources :shipping_address
