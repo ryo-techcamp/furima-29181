@@ -41,4 +41,20 @@ RSpec.describe BuyerShippingAddress, type: :model do
     @shipping_address.valid?
     expect(@shipping_address.errors.full_messages).to include("phone_number can't be blank")
   end
+
+  it "postal_code,prefecture,city,address,phone_numberが存在すれば登録できること" do
+    expect(@shipping_address).to be_valid
+  end
+
+  it "phone_numberはハイフン不要で11桁以下であれば登録できる" do
+    @shipping_address.phone_number = "12345678912"
+    @shipping＿address.valid?
+    @shipping_address.phone_number = "09023168811"
+    expect(@shipping_address.errors.full_messages).to include("phone_number is too short (minimum is 11 characters)")
+  end
+
+  it "郵便番号にはハイフン必要" do
+  @shipping_address.postal_code = "123-4567"
+  end
+
 end

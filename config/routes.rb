@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   resources :items do
     resources :shipping_address
   end
-  # get '/shipping_address/:id',to:'items/show'
 
   get 'sessions/new'
   devise_for :users

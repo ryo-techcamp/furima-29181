@@ -5,7 +5,6 @@ class BuyerShippingAddress
 
   with_options presence: true do
   
-    validates :postal_code,:prefecture,:city,:address,:phone_number, presence: true
 
     # 「住所」の郵便番号に関するバリデーション
     validates :postal_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
