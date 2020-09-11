@@ -85,3 +85,7 @@ gem "refile-mini_magick"
 gem "aws-sdk-s3", require: false
 
 gem 'payjp'
+
+group :production do
+  gem 'rails_12factor'
+end
