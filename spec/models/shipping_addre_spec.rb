@@ -30,11 +30,6 @@ RSpec.describe BuyerShippingAddress, type: :model do
     expect(@shipping_address.errors.full_messages).to include("address can't be blank")
   end
 
-  it "building_nameが空では登録できないこと" do
-    @shipping_address.building_name = nil
-    @shipping_address.valid?
-    expect(@shipping_address.errors.full_messages).to include("building_name can't be blank")
-  end
 
   it "phone_number空では登録できないこと" do
     @shipping_address.phone_number = nil
@@ -57,4 +52,11 @@ RSpec.describe BuyerShippingAddress, type: :model do
   @shipping_address.postal_code = "123-4567"
   end
 
+  it "tokenが空では登録できないこと" do
+    @shipping_address.token = nil
+    @shipping_address.valid?
+    expect(@shipping_address.errors.full_messages).to include("card_info can't be blank")
+  end
+
+end
 end
