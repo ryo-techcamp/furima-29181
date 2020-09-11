@@ -11,5 +11,7 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe ShippingAddressHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  config.before(:all) do
+    FactoryBot.reload
+  end
 end
