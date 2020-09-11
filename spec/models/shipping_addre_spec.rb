@@ -50,6 +50,7 @@ RSpec.describe BuyerShippingAddress, type: :model do
 
   it "郵便番号にはハイフン必要" do
   @shipping_address.postal_code = "123-4567"
+  @shipping_address.postal_code = "123-4567"
   end
 
   it "tokenが空では登録できないこと" do
