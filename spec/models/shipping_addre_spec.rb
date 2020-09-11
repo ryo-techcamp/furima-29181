@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe BuyerShippingAddress, type: :model do
   describe '#create' do
     before do
-      @shipping_address = FactoryBot.build(:shipping_address)
+      @shipping_address = FactoryBot.build(:shipping_addres)
     end
 
   it "postal_codeが空では登録できないこと" do
@@ -44,13 +44,13 @@ RSpec.describe BuyerShippingAddress, type: :model do
   it "phone_numberはハイフン不要で11桁以下であれば登録できる" do
     @shipping_address.phone_number = "12345678912"
     @shipping＿address.valid?
-    @shipping_address.phone_number = "09023168811"
     expect(@shipping_address.errors.full_messages).to include("phone_number is too short (minimum is 11 characters)")
   end
 
   it "郵便番号にはハイフン必要" do
   @shipping_address.postal_code = "123-4567"
-  @shipping_address.postal_code = "123-4567"
+  @shipping_address.postal_code = "1234567"
+  expect(@shipping_address.errors.full_messages).to include("postal_code can't be blank")
   end
 
   it "tokenが空では登録できないこと" do
