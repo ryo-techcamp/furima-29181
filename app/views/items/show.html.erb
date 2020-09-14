@@ -7,7 +7,7 @@
     </h2>
     <div class='item-img-content'>
       <%= image_tag @item.image[0] ,class:'item-box-img'  %>
-      <% if @item.nil? %> 
+      <% if @item.buyer != nil%> 
       <div class='sold-out'>
         <span>Sold Out!!</span>
       </div>
@@ -22,16 +22,21 @@
       </span>
     </div>
 
-    <% if user_signed_in? && @item.user_id == current_user.id %>
-    <%= link_to '商品の編集', edit_item_path(@item.id), class: "item-red-btn" %>
-    <p class='or-text'>or</p>
-    <%= link_to '削除', item_path(@item.id), method: :delete, class:'item-destroy' %>
-    <% end %>
-    <% if @item.present? && user_signed_in? %>
-    <%= link_to '購入画面に進む', item_shipping_address_index_path(@item.id) ,class:"item-red-btn"%>
-    <% else %>
-    <%= link_to "購入画面に進む",new_user_session_path,class:"item-red-btn"%>
-    <% end %>
+      <%# ログインしていて、なおかつ、ログインしているユーザと出品しているユーザが同一人物のとき表示しましょう。 %>
+        <% if user_signed_in? && current_user.id == @item.user_id %>
+          <%= link_to '商品の編集', edit_item_path(@item.id), method: :get, class: "item-red-btn" %>
+            <p class='or-text'>or</p>
+          <%= link_to '削除', item_path(@item.id), method: :delete, class:'item-destroy' %>
+        <% end %>
+        <% if user_signed_in? && current_user.id != @item.user_id && @item.buyer.blank? %>
+          <%= link_to '購入画面に進む', item_shipping_address_path(@item.id), class:"item-red-btn" %>
+        <% end %>
+        <%# ログインしていないユーザーはログイン画面に遷移させ、ログインしていれば購入ページに移動できる %>
+        <% unless user_signed_in? %>
+          <%= link_to '購入画面に進む', new_user_session_path, class:"item-red-btn" %>
+        <% end %>
+      <%# //商品が売れていない場合はこちらを表示しましょう %>
+      <%# //ログインしていて、なおかつ、ログインしているユーザと出品しているユーザが同一人物でないとき表示しましょう。 %>
 
     <div class="item-explain-box">
       <span><%= @item.description %></span>
